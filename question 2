@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, choice;
+    float marks[100], total = 0, highest, lowest;
+    cout << "Enter the number of students: ";
+    cin >> n;
+    while (true) {
+        cout << "Menu:\n";
+        cout << "1. Enter marks of N students\n";
+        cout << "2. Calculate average marks of the class\n";
+        cout << "3. Find the highest and lowest marks\n";
+        cout << "4. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                total = 0;
+                cout << "Enter marks of " << n << " students:\n";
+                for (int i = 0; i < n; i++) {
+                    cin >> marks[i];
+                    total += marks[i];
+                }
+                break;
+            case 2:
+                cout << "Average marks: " << total / n << endl;
+                break;
+            case 3:
+                highest = marks[0];
+                lowest = marks[0];
+                for (int i = 1; i < n; i++) {
+                    if (marks[i] > highest) highest = marks[i];
+                    if (marks[i] < lowest) lowest = marks[i];
+                }
+                cout << "Highest marks: " << highest << endl;
+                cout << "Lowest marks: " << lowest << endl;
+                break;
+            case 4:
+                return 0;
+            default:
+                cout << "Invalid choice\n";
+        }
+    }
+}
